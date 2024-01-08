@@ -17,14 +17,14 @@ public class Publisher {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String publisherName;
-    private String publisherUrl;
+    private String email;
     @OneToMany (mappedBy = "publisher",cascade =CascadeType.ALL,orphanRemoval = true)
     private List<Book> books =
             new ArrayList<>();
 
-    public Publisher(String publisherName, String publisherUrl) {
+    public Publisher(String publisherName, String email) {
         this.publisherName = publisherName;
-        this.publisherUrl = publisherUrl;
+        this.email = email;
     }
 
     public  void addBook(Book book){
