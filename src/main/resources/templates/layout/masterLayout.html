@@ -3,13 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+          crossorigin="anonymous">
     <link rel="stylesheet" href="../../static/bootstrap/css/bootstrap.min.css"
           th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="../../static/bootstrap/css/app.css"
+          th:href="@{/bootstrap/css/app.css}">
+<!--    font-->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+    <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-<div th:replace="${main}">
+<nav class="navbar navbar-expand-md navbar-dark text-dark">
+    <a href="#" class="navbar-brand">
+        <h3 class="mb-0">BookShop</h3>
+    </a>
+        <button type="button" class="navbar-toggler"
+                data-bs-target="#myNav" data-bs-toggler="collapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-</div>
+        <div id="myNav" class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Explore</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Book</a>
+                </li>
+            </ul>
+        </div>
+
+</nav>
+
+<section id="showcase" class="d-flex justify-content-center align-items-center text-white">
+        <div id="overlay"></div>
+        <div id="header" class="container text-center">
+            <h3 class="display-5 m-0">MODERN BOOKSHOP</h3>
+            <h1 class="display-1">BOOKSHOP</h1>
+            <p class="lead d-none d-md-block">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab culpa dolorem, eaque enim
+                ipsum magnam nam numquam omnis perspiciatis praesentium quam quasi quisquam quos reiciendis
+                repudiandae rerum vel voluptatem voluptatum.</p>
+            <button id="book" class="btn btn-outline-primary px-5 py-2 text-white">Book Now</button>
+        </div>
+
+</section>
+
+
+<div th:replace="${main}"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
@@ -17,5 +66,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
+
 </body>
 </html>
