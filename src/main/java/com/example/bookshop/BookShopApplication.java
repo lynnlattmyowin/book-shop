@@ -29,6 +29,7 @@ public class BookShopApplication {
     @Bean
     @Transactional
     @Profile("data")
+
     public ApplicationRunner runner() {
         return r -> {
             Author author = new Author("Charles Dickens", "charles@gmail.com");
@@ -40,8 +41,7 @@ public class BookShopApplication {
                     "Excellent",
                     100.0,
                     20,
-                    "https://plus.unsplash.com/premium_photo-1666722157999-67656cc7e1fa?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-
+                    "https://m.media-amazon.com/images/W/MEDIAX_792452-T2/images/I/51zYFogJw3L.jpg"
             );
             Book book1 = new Book(
                     2, IsbnGenerator.generate(),
@@ -49,8 +49,7 @@ public class BookShopApplication {
                     "GoodChoice",
                     30.5,
                     20,
-                    "https://plus.unsplash.com/premium_photo-1666722157999-67656cc7e1fa?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-
+                   "https://cdn.kobo.com/book-images/b300a5df-adb1-4d43-b48f-53e35f2804d4/353/569/90/False/great-expectations-30.jpg"
             );
             Book book2 = new Book(
                     3, IsbnGenerator.generate(),
@@ -58,8 +57,7 @@ public class BookShopApplication {
                     "Nice",
                     40.0,
                     20,
-                    "https://plus.unsplash.com/premium_photo-1666722157999-67656cc7e1fa?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-
+                    "https://m.media-amazon.com/images/I/51OSlFe0I+L.jpg"
             );
             Book book3 = new Book(
                     4, IsbnGenerator.generate(),
@@ -67,8 +65,7 @@ public class BookShopApplication {
                     "Excellent",
                     80.0,
                     20,
-                    "https://plus.unsplash.com/premium_photo-1666722157999-67656cc7e1fa?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-
+                   " https://m.media-amazon.com/images/I/51pG4gRLgkL.jpg"
             );
             Book book4 = new Book(
                     5, IsbnGenerator.generate(),
@@ -76,8 +73,7 @@ public class BookShopApplication {
                     "Nice",
                     70.0,
                     20,
-                    "https://plus.unsplash.com/premium_photo-1666722157999-67656cc7e1fa?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-
+                    "https://m.media-amazon.com/images/I/51JQgYHiEmL.jpg"
             );
             Book book5 = new Book(
                     6, IsbnGenerator.generate(),
@@ -85,8 +81,7 @@ public class BookShopApplication {
                     "Wow",
                     100.0,
                     20,
-                    "https://plus.unsplash.com/premium_photo-1666722157999-67656cc7e1fa?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-
+                    "https://m.media-amazon.com/images/I/51NgwIhjOoL.jpg"
             );
 
             Genre genre = new Genre();

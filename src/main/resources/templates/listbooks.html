@@ -6,22 +6,35 @@
 <body>
 
 <main role="main">
-    <div class="container bg-light p-4">
-        <div class="row">
-            <div class="col-md-4" th:each="book : ${books}">
-                <div class="card" style="width: 18rem">
-                    <img th:src="${book.imgUrl}" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <p class="lead card-title" th:text="${book.title}"></p>
-                        <p class="lead card-text" th:text="${'written by'+book.author.authorName}"></p>
-                        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Aliquid, voluptatum.</p>
-                        <div class="card-footer d-flex justify-content-between">
+    <div class="container-fluid bg-light p-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10"></div>
+                <div class="col-md-2">
+                    <a th:href="@{/cart/view-cart}" style="text-decoration: none!important;">
+                        <h4><i class="fas fa-cart-plus me-2 d-inline"></i> <span class="badge bg-success" th:text="${cartSize}"></span></h4>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4" th:each="book : ${books}">
+                    <div class="card" style="width: 18rem">
+                        <img th:src="${book.imgUrl}" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <p class="lead card-title" th:text="${book.title}"></p>
+                            <p class="lead card-text" th:text="${'written by'+book.author.authorName}"></p>
+                            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Aliquid, voluptatum.</p>
+                            <div class="card-footer">
 
-                            <span th:text="${'$'+book.price}"></span>
-                            <a th:href="@{'/book/book-details?id='+${book.id} + '&isbn=' +${book.isbn}}" class="btn btn-link"><i>Details</i></a>
-                            <span th:text="${book.publisher.publisherName}"></span>
+                                <div class=" d-flex justify-content-between">
+                                    <span th:text="${'$'+book.price}"></span>
+                                    <a th:href="@{'/cart/add-cart?id='+ ${book.id}+'&isbn='+${book.isbn} +'&page=booklist'}" class="btn btn-link">Cart</a>
+                                    <a th:href="@{'/book/book-details?id='+${book.id} + '&isbn=' +${book.isbn}}" class="btn btn-link"><i>Details</i></a>
+                                    <span th:text="${book.publisher.publisherName}"></span>
+                                </div>
 
+                            </div>
                         </div>
                     </div>
                 </div>
