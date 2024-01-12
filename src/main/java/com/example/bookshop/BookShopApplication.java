@@ -20,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 @SpringBootApplication
 @RequiredArgsConstructor
 public class BookShopApplication {
+
     private final AuthorDao authorDao;
     private final BookDao bookDao;
     private final GenreDao genreDao;

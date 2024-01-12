@@ -7,8 +7,9 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <div class="card shadow">
-                        <table class="table table-striped my-4 p-5">
+                    <form th:object="${cartItem}" th:action="@{/cart/checkout}"method="post">
+                    <div class="card shadow  my-4 p-5">
+                        <table class="table table-striped" th:if="${!cartItems.isEmpty()}">
                             <thead>
                             <tr>
                                 <th>Id</th>
@@ -24,12 +25,21 @@
                                 <td th:text="${item.isbn}"></td>
                                 <td th:text="${item.title}"></td>
                                 <td th:text="${'$'+item.price}"></td>
-                                <td th:text="${item.quantity}"></td>
+                                <td><input type="text" th:field="*{cardItemQuantity}" class="form-control"></td>
                                 <td><a th:href="@{'/cart/delete?id='+${item.id}+'&isbn='+${item.isbn}}" class="btn btn-outline-danger">Delete</a></td>
                             </tr>
                             </tbody>
                         </table>
+                        <div th:if="${cartItems.isEmpty()}">
+                            <h3 class="text-center text-muted">No Content</h3>
+                        </div>
+                        <div>
+                            <input type="submit" href="#" th:if="${!cartItems.isEmpty()}" value="checkout" class="btn btn-outline-primary me-2"/>
+                            <a th:href="@{/book/list-books}" class="btn btn-outline-secondary me-2 ">Continue Shopping</a>
+                            <a th:href="@{/cart/clear-cart}" th:if="${!cartItems.isEmpty()}" class="btn btn-outline-danger">Clear Cart</a>
+                        </div>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>

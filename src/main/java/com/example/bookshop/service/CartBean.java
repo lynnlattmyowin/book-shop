@@ -33,4 +33,8 @@ public class CartBean {
                 filter(c -> c.getId() != id && !c.getIsbn().equals(isbn))
                 .collect(Collectors.toSet());
     }
+
+    public void clearCart() {
+        cartItems.clear();
+    }
 }

@@ -7,6 +7,8 @@ import org.hibernate.metamodel.mapping.internal.EntityCollectionPart;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -28,12 +30,15 @@ public class CartService {
         return cartBean.getCartItems();
     }
     private CartItem toCartItem(Book book) {
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
         return new CartItem(
                 book.getId(),
                 book.getIsbn(),
                 book.getTitle(),
                 book.getPrice(),
-                1
+                1,
+                list
         );
 
 
@@ -43,4 +48,7 @@ public class CartService {
         cartBean.deleteCartItem(id,isbn);
     }
 
+    public void clearCart() {
+        cartBean.clearCart();
+    }
 }
