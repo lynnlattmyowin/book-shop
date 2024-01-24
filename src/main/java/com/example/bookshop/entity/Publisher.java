@@ -12,7 +12,8 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Publisher {
+public class
+Publisher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

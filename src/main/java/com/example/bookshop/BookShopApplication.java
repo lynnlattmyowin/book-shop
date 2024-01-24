@@ -1,13 +1,7 @@
 package com.example.bookshop;
 
-import com.example.bookshop.dao.AuthorDao;
-import com.example.bookshop.dao.BookDao;
-import com.example.bookshop.dao.GenreDao;
-import com.example.bookshop.dao.PublisherDao;
-import com.example.bookshop.entity.Author;
-import com.example.bookshop.entity.Book;
-import com.example.bookshop.entity.Genre;
-import com.example.bookshop.entity.Publisher;
+import com.example.bookshop.dao.*;
+import com.example.bookshop.entity.*;
 import com.example.bookshop.util.IsbnGenerator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.ApplicationRunner;
@@ -25,7 +19,23 @@ public class BookShopApplication {
     private final BookDao bookDao;
     private final GenreDao genreDao;
     private final PublisherDao publisherDao;
+    private final RoleDao roleDao;
 
+
+    @Bean
+    @Transactional
+    @Profile("security")
+    public ApplicationRunner runner1() {
+        return r -> {
+            Role admin = new Role();
+            admin.setRoleName("ROLE_ADMIN");
+            Role user = new Role();
+            user.setRoleName("ROLE_USER");
+
+            roleDao.save(admin);
+            roleDao.save(user);
+        };
+    }
 
     @Bean
     @Transactional
@@ -50,7 +60,7 @@ public class BookShopApplication {
                     "GoodChoice",
                     30.5,
                     20,
-                   "https://cdn.kobo.com/book-images/b300a5df-adb1-4d43-b48f-53e35f2804d4/353/569/90/False/great-expectations-30.jpg"
+                    "https://cdn.kobo.com/book-images/b300a5df-adb1-4d43-b48f-53e35f2804d4/353/569/90/False/great-expectations-30.jpg"
             );
             Book book2 = new Book(
                     3, IsbnGenerator.generate(),
@@ -66,7 +76,7 @@ public class BookShopApplication {
                     "Excellent",
                     80.0,
                     20,
-                   " https://m.media-amazon.com/images/I/51pG4gRLgkL.jpg"
+                    " https://m.media-amazon.com/images/I/51pG4gRLgkL.jpg"
             );
             Book book4 = new Book(
                     5, IsbnGenerator.generate(),
@@ -95,7 +105,6 @@ public class BookShopApplication {
             Publisher publisher1 = new Publisher("Old Era", "old@gmail.com");
 
 
-
             //mapping
             author.addBook(book);
             author.addBook(book1);
@@ -110,7 +119,7 @@ public class BookShopApplication {
             pub1.addBook(book1);
             pub1.addBook(book2);
 
-            Publisher pub2  = publisherDao.save(publisher1);
+            Publisher pub2 = publisherDao.save(publisher1);
             pub2.addBook(book3);
             pub2.addBook(book4);
             pub2.addBook(book5);
@@ -135,7 +144,6 @@ public class BookShopApplication {
 
             authorDao.save(author);
             authorDao.save(author1);
-
 
 
         };

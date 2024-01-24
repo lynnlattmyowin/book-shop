@@ -21,15 +21,21 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate orderDate;
+
     private String billingAddress;
     private String shippingAddress;
+
     @Enumerated(EnumType.STRING)
     private PaymentMethod paymentMethod;
+
     private double totalAmount;
+
     @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems = new ArrayList<>();
+
     @ManyToOne
     private Customer customer;
 
@@ -41,7 +47,7 @@ public class Order {
         this.totalAmount = totalAmount;
     }
 
-    public  void add(OrderItem orderItem){
+    public void add(OrderItem orderItem) {
         orderItem.setOrder(this);
         orderItems.add(orderItem);
     }

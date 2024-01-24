@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <form th:object="${cartItem}" th:action="@{/cart/checkout}"method="post">
+                    <form th:object="${cartItem}" th:action="@{/cart/checkout}" method="post">
                     <div class="card shadow  my-4 p-5">
                         <table class="table table-striped" th:if="${!cartItems.isEmpty()}">
                             <thead>
@@ -34,7 +34,7 @@
                             <h3 class="text-center text-muted">No Content</h3>
                         </div>
                         <div>
-                            <input type="submit" href="#" th:if="${!cartItems.isEmpty()}" value="checkout" class="btn btn-outline-primary me-2"/>
+                            <input type="submit"  th:if="${!cartItems.isEmpty()}" value="checkout" class="btn btn-outline-primary me-2"/>
                             <a th:href="@{/book/list-books}" class="btn btn-outline-secondary me-2 ">Continue Shopping</a>
                             <a th:href="@{/cart/clear-cart}" th:if="${!cartItems.isEmpty()}" class="btn btn-outline-danger">Clear Cart</a>
                         </div>
